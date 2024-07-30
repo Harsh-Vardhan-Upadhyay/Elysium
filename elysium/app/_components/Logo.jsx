@@ -5,7 +5,7 @@ function logo() {
   return (
     <div className='flex items-center gap-0'>
       <Image src={'/logo.png'}
-      width={50} height={50}/>
+      width={35} height={35}/>
       <h2 className='font-bold text-xl'>Elysiym</h2>
     </div>
   )
