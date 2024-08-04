@@ -9,6 +9,7 @@ import EmojiPickerComponent from "/Users/harshvardhanupadhyay/Elysium/elysium/ap
 import { setDoc, doc } from "firebase/firestore";  // Correct import statement
 import { db } from "@/config/firebaseConfig";
 import { useAuth, useUser } from "@clerk/nextjs";
+import {useRouter} from "next/navigation";
 
 // used to create new workspace and save data in database
 
@@ -19,6 +20,7 @@ function CreateWorkspace() {
   const { user } = useUser();
   const { orgId } = useAuth();
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const onCreateWorkspace = async () => {
     const docId = Date.now();
@@ -35,7 +37,8 @@ function CreateWorkspace() {
     });
 
     setLoading(false);
-    console.log("Data Inserted");
+    router.replace('/workspace/'+docId);
+
   }
 
   return (
